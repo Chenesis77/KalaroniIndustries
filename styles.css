@@ -1,0 +1,210 @@
+body {
+    font-family: sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional */
+    color: #eee;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd; /* Light border */
+    padding: 5px; 
+    text-align: left;
+    font-size: 14px; 
+}
+
+th {
+    background-color: #444; /* Darker header background */
+    color: #eee; /* Light text */
+    cursor: pointer; 
+}
+
+th.sorted-asc:after {
+    content: " ↑";
+}
+
+th.sorted-desc:after {
+    content: " ↓";
+}
+
+.button-container {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Button Styles */
+button {
+    background: linear-gradient(to bottom, #444, #222); /* Gradient */
+    color: #eee;
+    border: 1px solid #666;
+    padding: 8px 15px; /* Increased padding */
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    min-width: 120px; /* Minimum width */
+    font-family: 'Rajdhani', sans-serif; /* Example font */
+    font-weight: 500; /* Bolder font weight */
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); /* Text shadow */
+    margin-right: 5px; /* Space between buttons */
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #555, #333); /* Lighter gradient on hover */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4); /* Box shadow on hover */
+}
+
+button:active {
+    background: linear-gradient(to bottom, #333, #111); /* Darker gradient on click */
+    box-shadow: none; /* Remove box shadow */
+    transform: translateY(1px); /* Shift down slightly */
+}
+
+.hidden {
+    display: none;
+}
+
+#addContractForm label,
+#editContractForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#addContractForm input[type="text"],
+#addContractForm select,
+#editContractForm input[type="text"],
+#editContractForm select {
+    width: 50%; /* Or use max-width */
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    background-color: #333;
+    color: #eee;
+    border: 1px solid #666;
+    border-radius: 3px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+#addContractForm input[type="text"]:hover,
+#addContractForm select:hover,
+#editContractForm input[type="text"]:hover,
+#editContractForm select:hover {
+    background-color: #444;
+}
+
+#addContractForm input[type="text"]:focus,
+#addContractForm select:focus,
+#editContractForm input[type="text"]:focus,
+#editContractForm select:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 3px rgba(41, 128, 185, 0.5);
+}
+
+#totalCargo {
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+    padding: 8px 12px;
+    border: 2px solid;
+    border-image: linear-gradient(to right, #2980b9, #3498db) 1;
+    border-radius: 5px;
+    background: linear-gradient(to right, rgba(41, 128, 185, 0.4), rgba(52, 152, 219, 0.4));
+
+    /* Make background and border fit text content */
+    display: inline-block; /* Important: Makes the div only as wide as its content */
+    width: auto;  /* Allow width to adjust automatically */
+}
+
+.highlighted-row {
+    background-color: #555; /* Highlight color */
+}
+
+#shipDropdown {
+    margin-left: 10px;
+    background-color: #333;
+    color: #eee;
+    border: 1px solid #666;
+    padding: 8px 15px;
+    font-family: 'Rajdhani', sans-serif;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+}
+
+#shipDropdown:hover {
+    background-color: #444;
+}
+
+#shipDropdown:focus {
+    outline: none;
+    border: 1px solid #2980b9;
+    box-shadow: 0 0 3px rgba(41, 128, 185, 0.5);
+}
+
+#shipDropdown::after {
+    content: '▼';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #2980b9;
+    pointer-events: none;
+}
+
+#shipDropdown option {
+    background-color: #333;
+    color: #eee;
+    padding: 5px;
+}
+
+#shipDropdown option:hover {
+    background-color: #555;
+}
+
+/* Total Cargo Colors */
+.total-cargo-green {
+    color: #00aa00; /* Darker green */
+}
+
+.total-cargo-yellow {
+    color: #daa520; /* Mustard yellow (same as before) */
+}
+
+.total-cargo-red {
+    color: #cc0000; /* Darker red */
+}
+
+/* Heading Styles */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+
+h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    text-align: left; /* Left-justify */
+    margin-bottom: 20px;
+    color: #2980b9; 
+    background: linear-gradient(to right, #2980b9, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1.5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: none; /* Remove border */
+}
+
+#sc-logo {
+    height: 80px; /* Increased logo size */
+    margin-right: 10px;
+    vertical-align: middle;
+}

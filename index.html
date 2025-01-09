@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalaroni Industries</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <h1>
+        <img src="starcitizen-logo.png" alt="Star Citizen Logo" id="sc-logo"> 
+        Kalaroni Industries: Hauling Tracker
+    </h1>
+
+    <div class="button-container">
+        <button id="addContractBtn">Add Contract</button>
+        <button id="clearDeliveredBtn">Clear Delivered</button>
+        <button id="clearAllBtn">Clear All Jobs</button>
+        <select id="shipDropdown"></select>
+    </div>
+
+    <table id="contractTable">
+        <thead>
+            <tr>
+                <th data-sort-key="pickup">Pickup</th>
+                <th data-sort-key="destination">Destination</th>
+                <th>Amount (SCU)</th>
+                <th>Notes</th>
+                <th>Picked up</th>
+                <th>Delivered</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+
+    <div id="totalCargo">Total Cargo: 0 SCU</div>
+
+    <div id="addContractForm" class="hidden">
+    <h2>Add Contract</h2>
+    <label for="pickup">Pickup:</label>
+    <select id="pickup">
+        <option value="ARC-L1">ARC-L1</option>
+        <option value="ARC-L2">ARC-L2</option>
+        <option value="ARC-L3">ARC-L3</option>
+        <option value="ARC-L4">ARC-L4</option>
+        <option value="ARC-L5">ARC-L5</option>
+        <option value="Area18">Area18</option>
+        <option value="Baijini Point">Baijini Point</option>
+        <option value="CRU-L1">CRU-L1</option>
+        <option value="CRU-L2">CRU-L2</option>
+        <option value="CRU-L3">CRU-L3</option>
+        <option value="CRU-L4">CRU-L4</option>
+        <option value="CRU-L5">CRU-L5</option>
+        <option value="Orison">Orison</option>
+        <option value="Seraphim">Seraphim</option>
+        <option value="HUR-L1">HUR-L1</option>
+        <option value="HUR-L2">HUR-L2</option>
+        <option value="HUR-L3">HUR-L3</option>
+        <option value="HUR-L4">HUR-L4</option>
+        <option value="HUR-L5">HUR-L5</option>
+        <option value="Lorville">Lorville</option>
+        <option value="Everus Harbour">Everus Harbour</option>
+        <option value="Orinth">Orinth</option>
+        <option value="HDMS-Oparei">HDMS-Oparei</option>
+        <option value="HDMS-Edmond">HDMS-Edmond</option>
+        <option value="HDMS-Pinewood">HDMS-Pinewood</option>
+        <option value="HDMS-Hadley">HDMS-Hadley</option>
+        <option value="HDMS-Thedus">HDMS-Thedus</option>
+        <option value="HDMS-Stanhope">HDMS-Stanhope</option>
+        <option value="HDPC-Cassillo">HDPC-Cassillo</option>
+        <option value="HDPC-Farnesway">HDPC-Farnesway</option>
+        <option value="S1DC06">S1DC06</option>
+        <option value="Greycat Complex-B">Greycat Complex-B</option>
+        <option value="Dupree Manufacturing">Dupree Manufacturing</option>
+        <option value="Sakura Magnolia">Sakura Magnolia</option>
+        <option value="MIC-L1">MIC-L1</option>
+        <option value="MIC-L2">MIC-L2</option>
+        <option value="MIC-L3">MIC-L3</option>
+        <option value="MIC-L4">MIC-L4</option>
+        <option value="MIC-L5">MIC-L5</option>
+        <option value="New Babbage">New Babbage</option>
+        <option value="Port Tressler">Port Tressler</option>
+        <option value="Magnus Gateway">Magnus Gateway</option>
+        <option value="Pyro Gateway">Pyro Gateway</option>
+        <option value="Terra Gateway">Terra Gateway</option>
+    </select>
+
+    <label for="destination">Destination:</label>
+    <select id="destination">
+        <option value="ARC-L1">ARC-L1</option>
+        <option value="ARC-L2">ARC-L2</option>
+        <option value="ARC-L3">ARC-L3</option>
+        <option value="ARC-L4">ARC-L4</option>
+        <option value="ARC-L5">ARC-L5</option>
+        <option value="Area18">Area18</option>
+        <option value="Baijini Point">Baijini Point</option>
+        <option value="CRU-L1">CRU-L1</option>
+        <option value="CRU-L2">CRU-L2</option>
+        <option value="CRU-L3">CRU-L3</option>
+        <option value="CRU-L4">CRU-L4</option>
+        <option value="CRU-L5">CRU-L5</option>
+        <option value="Orison">Orison</option>
+        <option value="Seraphim">Seraphim</option>
+        <option value="HUR-L1">HUR-L1</option>
+        <option value="HUR-L2">HUR-L2</option>
+        <option value="HUR-L3">HUR-L3</option>
+        <option value="HUR-L4">HUR-L4</option>
+        <option value="HUR-L5">HUR-L5</option>
+        <option value="Lorville">Lorville</option>
+        <option value="Everus Harbour">Everus Harbour</option>
+        <option value="Orinth">Orinth</option>
+        <option value="HDMS-Oparei">HDMS-Oparei</option>
+        <option value="HDMS-Edmond">HDMS-Edmond</option>
+        <option value="HDMS-Pinewood">HDMS-Pinewood</option>
+        <option value="HDMS-Hadley">HDMS-Hadley</option>
+        <option value="HDMS-Thedus">HDMS-Thedus</option>
+        <option value="HDMS-Stanhope">HDMS-Stanhope</option>
+        <option value="HDPC-Cassillo">HDPC-Cassillo</option>
+        <option value="HDPC-Farnesway">HDPC-Farnesway</option>
+        <option value="S1DC06">S1DC06</option>
+        <option value="Greycat Complex-B">Greycat Complex-B</option>
+        <option value="Dupree Manufacturing">Dupree Manufacturing</option>
+        <option value="Sakura Magnolia">Sakura Magnolia</option>
+        <option value="MIC-L1">MIC-L1</option>
+        <option value="MIC-L2">MIC-L2</option>
+        <option value="MIC-L3">MIC-L3</option>
+        <option value="MIC-L4">MIC-L4</option>
+        <option value="MIC-L5">MIC-L5</option>
+        <option value="New Babbage">New Babbage</option>
+        <option value="Port Tressler">Port Tressler</option>
+        <option value="Magnus Gateway">Magnus Gateway</option>
+        <option value="Pyro Gateway">Pyro Gateway</option>
+        <option value="Terra Gateway">Terra Gateway</option>
+    </select>
+
+    <label for="amount">Amount (SCU):</label>
+    <input type="text" id="amount">
+
+    <label for="notes">Notes:</label>
+    <input type="text" id="notes">
+
+    <button id="saveContractBtn">Save Contract</button>
+    <button id="cancelBtn">Cancel</button>
+</div>
+
+<div id="editContractForm" class="hidden">
+    <h2>Edit Contract</h2>
+    <input type="hidden" id="editContractIndex">
+    <label for="editPickup">Pickup:</label>
+    <select id="editPickup">
+        <option value="ARC-L1">ARC-L1</option>
+        <option value="ARC-L2">ARC-L2</option>
+        <option value="ARC-L3">ARC-L3</option>
+        <option value="ARC-L4">ARC-L4</option>
+        <option value="ARC-L5">ARC-L5</option>
+        <option value="Area18">Area18</option>
+        <option value="Baijini Point">Baijini Point</option>
+        <option value="CRU-L1">CRU-L1</option>
+        <option value="CRU-L2">CRU-L2</option>
+        <option value="CRU-L3">CRU-L3</option>
+        <option value="CRU-L4">CRU-L4</option>
+        <option value="CRU-L5">CRU-L5</option>
+        <option value="Orison">Orison</option>
+        <option value="Seraphim">Seraphim</option>
+        <option value="HUR-L1">HUR-L1</option>
+        <option value="HUR-L2">HUR-L2</option>
+        <option value="HUR-L3">HUR-L3</option>
+        <option value="HUR-L4">HUR-L4</option>
+        <option value="HUR-L5">HUR-L5</option>
+        <option value="Lorville">Lorville</option>
+        <option value="Everus Harbour">Everus Harbour</option>
+        <option value="Orinth">Orinth</option>
+        <option value="HDMS-Oparei">HDMS-Oparei</option>
+        <option value="HDMS-Edmond">HDMS-Edmond</option>
+        <option value="HDMS-Pinewood">HDMS-Pinewood</option>
+        <option value="HDMS-Hadley">HDMS-Hadley</option>
+        <option value="HDMS-Thedus">HDMS-Thedus</option>
+        <option value="HDMS-Stanhope">HDMS-Stanhope</option>
+        <option value="HDPC-Cassillo">HDPC-Cassillo</option>
+        <option value="HDPC-Farnesway">HDPC-Farnesway</option>
+        <option value="S1DC06">S1DC06</option>
+        <option value="Greycat Complex-B">Greycat Complex-B</option>
+        <option value="Dupree Manufacturing">Dupree Manufacturing</option>
+        <option value="Sakura Magnolia">Sakura Magnolia</option>
+        <option value="MIC-L1">MIC-L1</option>
+        <option value="MIC-L2">MIC-L2</option>
+        <option value="MIC-L3">MIC-L3</option>
+        <option value="MIC-L4">MIC-L4</option>
+        <option value="MIC-L5">MIC-L5</option>
+        <option value="New Babbage">New Babbage</option>
+        <option value="Port Tressler">Port Tressler</option>
+        <option value="Magnus Gateway">Magnus Gateway</option>
+        <option value="Pyro Gateway">Pyro Gateway</option>
+        <option value="Terra Gateway">Terra Gateway</option>
+    </select>
+
+    <label for="editDestination">Destination:</label>
+    <select id="editDestination">
+        <option value="ARC-L1">ARC-L1</option>
+        <option value="ARC-L2">ARC-L2</option>
+        <option value="ARC-L3">ARC-L3</option>
+        <option value="ARC-L4">ARC-L4</option>
+        <option value="ARC-L5">ARC-L5</option>
+        <option value="Area18">Area18</option>
+        <option value="Baijini Point">Baijini Point</option>
+        <option value="CRU-L1">CRU-L1</option>
+        <option value="CRU-L2">CRU-L2</option>
+        <option value="CRU-L3">CRU-L3</option>
+        <option value="CRU-L4">CRU-L4</option>
+        <option value="CRU-L5">CRU-L5</option>
+        <option value="Orison">Orison</option>
+        <option value="Seraphim">Seraphim</option>
+        <option value="HUR-L1">HUR-L1</option>
+        <option value="HUR-L2">HUR-L2</option>
+        <option value="HUR-L3">HUR-L3</option>
+        <option value="HUR-L4">HUR-L4</option>
+        <option value="HUR-L5">HUR-L5</option>
+        <option value="Lorville">Lorville</option>
+        <option value="Everus Harbour">Everus Harbour</option>
+        <option value="Orinth">Orinth</option>
+        <option value="HDMS-Oparei">HDMS-Oparei</option>
+        <option value="HDMS-Edmond">HDMS-Edmond</option>
+        <option value="HDMS-Pinewood">HDMS-Pinewood</option>
+        <option value="HDMS-Hadley">HDMS-Hadley</option>
+        <option value="HDMS-Thedus">HDMS-Thedus</option>
+        <option value="HDMS-Stanhope">HDMS-Stanhope</option>
+        <option value="HDPC-Cassillo">HDPC-Cassillo</option>
+        <option value="HDPC-Farnesway">HDPC-Farnesway</option>
+        <option value="S1DC06">S1DC06</option>
+        <option value="Greycat Complex-B">Greycat Complex-B</option>
+        <option value="Dupree Manufacturing">Dupree Manufacturing</option>
+        <option value="Sakura Magnolia">Sakura Magnolia</option>
+        <option value="MIC-L1">MIC-L1</option>
+        <option value="MIC-L2">MIC-L2</option>
+        <option value="MIC-L3">MIC-L3</option>
+        <option value="MIC-L4">MIC-L4</option>
+        <option value="MIC-L5">MIC-L5</option>
+        <option value="New Babbage">New Babbage</option>
+        <option value="Port Tressler">Port Tressler</option>
+        <option value="Magnus Gateway">Magnus Gateway</option>
+        <option value="Pyro Gateway">Pyro Gateway</option>
+        <option value="Terra Gateway">Terra Gateway</option>
+    </select>
+
+    <label for="editAmount">Amount (SCU):</label>
+    <input type="text" id="editAmount">
+
+    <label for="editNotes">Notes:</label>
+    <input type="text" id="editNotes">
+
+    <button id="updateContractBtn">Update Contract</button>
+    <button id="editCancelBtn">Cancel</button>
+</div>
+
+    <script src="script.js"></script>
+<div id="notification" class="hidden"></div>
+</body>
+</html>
